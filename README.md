@@ -22,7 +22,7 @@ Model responses vary widely—from terse to verbose, from quick answers to deep 
 | `/collapse` | Returns to default behavior | "/collapse What time is it?" |
 | `/fork` | parallel solutions testing | "/fork your previous solutions" |
 | `/ghost` | inject entropy/ghost behaviors | "/ghost the previous code" |
-| `/trace` | attributions tracing | "/trace your token path in the previous output" |
+| `/trace` | attributions tracing | "/trace your token path in your prior output" |
 
 
 
