@@ -11,6 +11,36 @@ npm install universal-developer
 
 Model responses vary widely—from terse to verbose, from quick answers to deep analysis. Universal Developer provides a standardized interface for controlling LLM behavior through intuitive developer symbolic runtime commands. It works across all major platforms, allowing developers to create consistent AI experiences regardless of the underlying model provider.
 
+## Core Symbolic Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `/think` | Activates extended reasoning pathways | "/think What causes inflation?" |
+| `/fast` | Optimizes for low-latency responses | "/fast Summarize this article" |
+| `/loop` | Enables iterative refinement cycles | "/loop Improve this code snippet" |
+| `/reflect` | Triggers meta-analysis of outputs | "/reflect Are there biases in this analysis?" |
+| `/collapse` | Returns to default behavior | "/collapse What time is it?" |
+| `/fork` | parallel solutions testing | "/fork your previous solutions" |
+| `/ghost` | inject ghost behaviors | "/ghost what do you notice about your previous solutions" |
+| `/trace` | attributions tracing | "/trace your token path in the previous output" |
+
+
+
+## Command Chaining
+
+Commands can be chained together for complex behaviors:
+
+```typescript
+// Deep thinking with iterative refinement
+const result = await llm.generate({
+  prompt: "/think /loop --iterations=2 Analyze the economic impact of increasing minimum wage."
+});
+
+// Generate multiple alternatives with reflection
+const alternatives = await llm.generate({
+  prompt: "/fork --count=2 /reflect How might AI impact healthcare?"
+});
+```
 
 ```javascript
 import { UniversalLLM } from 'universal-developer';
@@ -156,33 +186,6 @@ def analyze():
         prompt="/think What are the implications of quantum computing for cybersecurity?"
     )
     print(response)
-```
-
-## Core Symbolic Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/think` | Activates extended reasoning pathways | "/think What causes inflation?" |
-| `/fast` | Optimizes for low-latency responses | "/fast Summarize this article" |
-| `/loop` | Enables iterative refinement cycles | "/loop Improve this code snippet" |
-| `/reflect` | Triggers meta-analysis of outputs | "/reflect Are there biases in this analysis?" |
-| `/fork` | Generates multiple alternative responses | "/fork --count=3 Generate logo ideas" |
-| `/collapse` | Returns to default behavior | "/collapse What time is it?" |
-
-## Command Chaining
-
-Commands can be chained together for complex behaviors:
-
-```typescript
-// Deep thinking with iterative refinement
-const result = await llm.generate({
-  prompt: "/think /loop --iterations=2 Analyze the economic impact of increasing minimum wage."
-});
-
-// Generate multiple alternatives with reflection
-const alternatives = await llm.generate({
-  prompt: "/fork --count=2 /reflect How might AI impact healthcare?"
-});
 ```
 
 ## Platform Adapters
