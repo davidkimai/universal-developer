@@ -21,7 +21,7 @@ Model responses vary widely—from terse to verbose, from quick answers to deep 
 | `/collapse` | Returns to default behavior | "/collapse What time is it?" |
 | `/fork` | parallel solutions testing | "/fork prior solutions" |
 | `/ghost` | entropy/ghost behaviors | "/ghost prior code" |
-| `/trace` | attributions tracing | "/trace prior output token path" |
+| `/trace` | attributions tracing | "/trace prior token path" |
 
 
 
