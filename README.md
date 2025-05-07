@@ -19,9 +19,9 @@ Model responses vary widely—from terse to verbose, from quick answers to deep 
 | `/loop` | Enables iterative refinement cycles | "/loop Improve this code snippet" |
 | `/reflect` | Triggers meta-analysis of outputs | "/reflect Are there biases in this analysis?" |
 | `/collapse` | Returns to default behavior | "/collapse What time is it?" |
-| `/fork` | parallel solutions testing | "/fork your previous solutions" |
-| `/ghost` | entropy/ghost behaviors | "/ghost the previous code" |
-| `/trace` | attributions tracing | "/trace your token path in your prior output" |
+| `/fork` | parallel solutions testing | "/fork prior solutions" |
+| `/ghost` | entropy/ghost behaviors | "/ghost prior code" |
+| `/trace` | attributions tracing | "/trace prior output token path" |
 
 
 
