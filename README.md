@@ -21,7 +21,7 @@ Model responses vary widely—from terse to verbose, from quick answers to deep 
 | `/reflect` | Triggers meta-analysis of outputs | "/reflect Are there biases in this analysis?" |
 | `/collapse` | Returns to default behavior | "/collapse What time is it?" |
 | `/fork` | parallel solutions testing | "/fork your previous solutions" |
-| `/ghost` | inject entropy/ghost behaviors | "/ghost reassess about your previous solutions" |
+| `/ghost` | inject entropy/ghost behaviors | "/ghost the previous code" |
 | `/trace` | attributions tracing | "/trace your token path in the previous output" |
 
 
