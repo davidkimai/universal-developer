@@ -1250,3 +1250,170 @@ const SYMBOLIC_COMMANDS: SymbolicCommand[] = [
     examples: [
       '/fork --count=3 What are some approaches to reducing carbon emissions?',
       '/fork Generate two different marketing slogans
+{
+  "name": "universal-developer",
+  "displayName": "Universal Developer - Symbolic Runtime Controls",
+  "description": "Control LLM behavior through symbolic runtime commands across all major AI platforms",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "publisher": "universal-developer",
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "llm",
+    "claude",
+    "gpt",
+    "qwen",
+    "gemini",
+    "prompt engineering",
+    "symbolic commands"
+  ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#24292e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:markdown",
+    "onLanguage:plaintext"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "universal-developer.insertSymbolicCommand",
+        "title": "Universal Developer: Insert Symbolic Command"
+      },
+      {
+        "command": "universal-developer.buildSymbolicChain",
+        "title": "Universal Developer: Build Symbolic Command Chain"
+      },
+      {
+        "command": "universal-developer.showDocumentation",
+        "title": "Universal Developer: Open Documentation"
+      },
+      {
+        "command": "universal-developer.getContext",
+        "title": "Universal Developer: Get Extension Context"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "universal-developer.insertSymbolicCommand",
+        "key": "ctrl+shift+/",
+        "mac": "cmd+shift+/",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "universal-developer.buildSymbolicChain",
+        "key": "ctrl+shift+.",
+        "mac": "cmd+shift+.",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "universal-developer.insertSymbolicCommand",
+          "group": "universal-developer",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "universal-developer.buildSymbolicChain",
+          "group": "universal-developer",
+          "when": "editorTextFocus"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Universal Developer",
+      "properties": {
+        "universal-developer.enableTelemetry": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable anonymous usage data collection to improve the extension"
+        },
+        "universal-developer.defaultProvider": {
+          "type": "string",
+          "enum": [
+            "anthropic",
+            "openai",
+            "qwen",
+            "gemini",
+            "ollama"
+          ],
+          "default": "anthropic",
+          "description": "Default LLM provider for command examples"
+        },
+        "universal-developer.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Universal Developer status bar item"
+        },
+        "universal-developer.telemetryEndpoint": {
+          "type": "string",
+          "default": "https://telemetry.universal-developer.org/v1/events",
+          "description": "Endpoint for telemetry data collection"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/python.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.14.37",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.24.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.3.2",
+    "typescript": "^4.2.4",
+    "vscode-test": "^1.5.2",
+    "vsce": "^2.7.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/universal-developer/vscode-extension.git"
+  },
+  "homepage": "https://github.com/universal-developer/vscode-extension",
+  "bugs": {
+    "url": "https://github.com/universal-developer/vscode-extension/issues"
+  },
+  "license": "MIT"
+}
