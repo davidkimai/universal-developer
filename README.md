@@ -31,18 +31,6 @@ const quickAnswer = await llm.generate({
 });
 ```
 
-## Core Symbolic Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/think` | Activates extended reasoning pathways | "/think What causes inflation?" |
-| `/fast` | Optimizes for low-latency responses | "/fast Summarize this article" |
-| `/loop` | Enables iterative refinement cycles | "/loop Improve this code snippet" |
-| `/reflect` | Triggers meta-analysis of outputs | "/reflect Are there biases in this analysis?" |
-| `/collapse` | Returns to default behavior | "/collapse What time is it?" |
-| `/fork` | parallel solutions testing | "/fork your previous solutions" |
-| `/ghost` | inject ghost behaviors | "/ghost what do you notice about your previous solutions" |
-| `/trace` | attributions tracing | "/trace your token path in the previous output" |
 
 
 ## Platform Adapters
