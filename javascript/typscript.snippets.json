@@ -1,0 +1,139 @@
+{
+  "Universal LLM Initialization": {
+    "prefix": "ud-init",
+    "body": [
+      "import { UniversalLLM } from 'universal-developer';",
+      "",
+      "const llm = new UniversalLLM({",
+      "  provider: '${1|anthropic,openai,qwen,gemini,ollama|}',",
+      "  apiKey: process.env.${2:${1/(anthropic|openai|qwen|gemini)/${1:/upcase}_API_KEY/}}",
+      "});"
+    ],
+    "description": "Initialize a Universal Developer LLM instance"
+  },
+  "Thinking Mode Generator": {
+    "prefix": "ud-think",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/think ${3:What are the implications of ${4:technology} on ${5:domain}?}\"",
+      "});"
+    ],
+    "description": "Generate response using thinking mode"
+  },
+  "Fast Mode Generator": {
+    "prefix": "ud-fast",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/fast ${3:${4:Summarize} ${5:this information}}\"",
+      "});"
+    ],
+    "description": "Generate concise response using fast mode"
+  },
+  "Loop Mode Generator": {
+    "prefix": "ud-loop",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/loop --iterations=${3:3} ${4:Improve this ${5:text}: ${6:content}}\"",
+      "});"
+    ],
+    "description": "Generate iteratively refined response using loop mode"
+  },
+  "Reflection Mode Generator": {
+    "prefix": "ud-reflect",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/reflect ${3:${4:Analyze} the ${5:implications} of ${6:topic}}\"",
+      "});"
+    ],
+    "description": "Generate self-reflective response using reflection mode"
+  },
+  "Fork Mode Generator": {
+    "prefix": "ud-fork",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/fork --count=${3:2} ${4:Generate different ${5:approaches} to ${6:problem}}\"",
+      "});"
+    ],
+    "description": "Generate multiple alternative responses using fork mode"
+  },
+  "Chain Commands": {
+    "prefix": "ud-chain",
+    "body": [
+      "const response = await llm.generate({",
+      "  ${1:systemPrompt: `${2:You are a helpful assistant.}`,}",
+      "  prompt: \"/${3|think,loop,reflect,fork|} /${4|think,loop,reflect,fork|} ${5:Prompt text}\"",
+      "});"
+    ],
+    "description": "Generate response using chained symbolic commands"
+  },
+  "Custom Command Registration": {
+    "prefix": "ud-custom",
+    "body": [
+      "llm.registerCommand(\"${1:commandName}\", {",
+      "  description: \"${2:Command description}\",",
+      "  ${3:parameters: [",
+      "    {",
+      "      name: \"${4:paramName}\",",
+      "      description: \"${5:Parameter description}\",",
+      "      required: ${6:false},",
+      "      default: ${7:\"defaultValue\"}",
+      "    }",
+      "  ],}",
+      "  transform: async (prompt, options) => {",
+      "    ${8:// Custom implementation}",
+      "    const systemPrompt = `\\${options.systemPrompt || ''}",
+      "${9:Custom system prompt instructions}`;",
+      "",
+      "    return {",
+      "      systemPrompt,",
+      "      userPrompt: prompt,",
+      "      modelParameters: {",
+      "        ${10:temperature: 0.7}",
+      "      }",
+      "    };",
+      "  }",
+      "});"
+    ],
+    "description": "Register a custom symbolic command"
+  },
+  "Express API Integration": {
+    "prefix": "ud-express",
+    "body": [
+      "import express from 'express';",
+      "import { UniversalLLM } from 'universal-developer';",
+      "",
+      "const app = express();",
+      "app.use(express.json());",
+      "",
+      "const llm = new UniversalLLM({",
+      "  provider: '${1|anthropic,openai,qwen,gemini,ollama|}',",
+      "  apiKey: process.env.${2:${1/(anthropic|openai|qwen|gemini)/${1:/upcase}_API_KEY/}}",
+      "});",
+      "",
+      "app.post('/api/generate', async (req, res) => {",
+      "  try {",
+      "    const { prompt, systemPrompt } = req.body;",
+      "    ",
+      "    // Get command from query param or default to /think",
+      "    const command = req.query.command || 'think';",
+      "    ",
+      "    const response = await llm.generate({",
+      "      systemPrompt,",
+      "      prompt: `/${command} ${prompt}`",
+      "    });",
+      "    ",
+      "    res.json({ response });",
+      "  } catch (error) {",
+      "    console.error('Error generating response:', error);",
+      "    res.status(500).json({ error: error.message });",
+      "  }",
+      "});"
+    ],
+    "description": "Express API integration with Universal Developer"
+  }
+}
