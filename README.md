@@ -1,4 +1,5 @@
-# universal-developer
+# `universal developer`
+## Runtime Interpretability
 
 *A lightweight, platform-agnostic framework for controlling LLM behavior through developer symbolic runtime commands.*
 
