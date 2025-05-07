@@ -1,6 +1,6 @@
 # universal-developer
 
-A lightweight, platform-agnostic framework for controlling LLM behavior through symbolic runtime commands.
+*A lightweight, platform-agnostic framework for controlling LLM behavior through symbolic runtime commands.*
 
 ```
 npm install universal-developer
