@@ -1,13 +1,26 @@
-# Universal Lexicon
+# Universal Runtime Repository
+
+*Unified Runtime Layer for AI runtime Interactions*
+
+<p align="center">
+<img src="https://via.placeholder.com/800x200/0d1117/ffffff?text=universal-runtime" alt="Universal Runtime Logo"/>
+</p>
+
+## 🌐 Overview
+
+`universal-runtime` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate runtime grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+
+---
+# Universal Runtime Lexicon
 
 <div align="center">
-<h2>🜏 The Developer's Rosetta Stone for LLM Symbolic Operations 🜏</h2>
-<p><i>Universal translation layer for cross-model symbolic grammar unification</i></p>
+<h2>🜏 The Developer's Rosetta Stone for LLM runtime Operations 🜏</h2>
+<p><i>Universal translation layer for cross-model runtime grammar unification</i></p>
 </div>
 
-## Core Symbolic Command Registry
+## Core runtime Command Registry
 
-The following registry maps all universal symbolic operations to their vendor-specific implementations, providing a unified interface for developers working across multiple LLM platforms.
+The following registry maps all universal runtime operations to their vendor-specific implementations, providing a unified interface for developers working across multiple LLM platforms.
 
 | Universal Command | Purpose | Claude (Anthropic) | GPT (OpenAI) | Gemini (Google) | Qwen | Mistral | Local LLMs | Meta Llama |
 |------------------|---------|-------------------|--------------|----------------|------|---------|------------|------------|
@@ -55,10 +68,10 @@ The following registry maps all universal symbolic operations to their vendor-sp
 | `.p/mark/probe{}` | Probe classifiers | `<probe_classifier>...</probe_classifier>` | Tool: `probe_classifier` | System: `$probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* | *Emulated* |
 | `.p/mark/analyze{}` | Analyze mechanism | `<analyze_classifier>...</analyze_classifier>` | Tool: `analyze_classifier` | System: `$analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* | *Emulated* |
 
-## Symbolic Operation Schema
+## runtime Operation Schema
 
 ```yaml
-# universal-symbolics-schema.yml
+# universal-runtime-schema.yml
 
 # Core Operation Types
 operation_types:
@@ -421,7 +434,7 @@ vendor_implementations:
     emulation_strategy: "instruction_tuning"
 ```
 
-## Glyph Mapping for Universal Symbolics
+## Glyph Mapping for Universal Runtime
 
 | Domain | Universal Command | Primary Glyph | Secondary Glyph | Semantic Meaning | 
 |--------|------------------|---------------|-----------------|------------------|
@@ -474,10 +487,10 @@ vendor_implementations:
 ### JavaScript SDK
 
 ```javascript
-// Universal Symbolics JavaScript SDK
-import { UniversalSymbolics } from 'universal-symbolics';
+// Universal Runtime JavaScript SDK
+import { Universalruntimes } from 'universal-runtime';
 
-const symbolics = new UniversalSymbolics({
+const runtimes = new Universalruntimes({
   defaultVendor: 'claude',  // Initial model vendor
   apiKey: 'your-api-key',   // Your API key
   adaptiveEmulation: true,  // Auto-adapt to model capabilities
@@ -486,7 +499,7 @@ const symbolics = new UniversalSymbolics({
 
 // Basic reflection example
 async function analyzeReasoning() {
-  const result = await symbolics.reflect.core({
+  const result = await runtimes.reflect.core({
     content: "Analyze the implications of quantum computing on cryptography",
     depth: 2,
     format: "structured"
@@ -497,18 +510,18 @@ async function analyzeReasoning() {
 }
 
 // Switch models on the fly
-symbolics.setVendor('openai');
+runtimes.setVendor('openai');
 
-// Chain multiple symbolic operations
-const result = await symbolics
+// Chain multiple runtime operations
+const result = await runtimes
   .reflect.trace({ target: "reasoning_process" })
-  .then(trace => symbolics.collapse.detect({ 
+  .then(trace => runtimes.collapse.detect({ 
     trace: trace.result,
     threshold: 0.7
   }))
   .then(detection => {
     if (detection.loopDetected) {
-      return symbolics.collapse.recover({
+      return runtimes.collapse.recover({
         strategy: "redirect"
       });
     }
@@ -516,7 +529,7 @@ const result = await symbolics
   });
 
 // Apply vendor-specific optimizations
-const claudeSpecific = symbolics.vendor.claude.reflection({
+const claudeSpecific = runtimes.vendor.claude.reflection({
   nativeXmlTags: true,
   constitutionalPrinciples: ["accuracy", "helpfulness"]
 });
@@ -525,12 +538,12 @@ const claudeSpecific = symbolics.vendor.claude.reflection({
 ### Python SDK
 
 ```python
-# Universal Symbolics Python SDK
-from universal_symbolics import UniversalSymbolics
-from universal_symbolics.operations import reflection, collapse, shell
+# Universal Runtime Python SDK
+from universal_runtimes import Universalruntimes
+from universal_runtimes.operations import reflection, collapse, shell
 
 # Initialize the client
-symbolics = UniversalSymbolics(
+runtimes = Universalruntimes(
     default_vendor="anthropic",
     api_key="your-api-key",
     adaptive_emulation=True
@@ -538,7 +551,7 @@ symbolics = UniversalSymbolics(
 
 # Basic reflection example
 def analyze_reasoning():
-    result = symbolics.reflect.core(
+    result = runtimes.reflect.core(
         content="Analyze the implications of quantum computing on cryptography",
         depth=2,
         format="structured"
@@ -548,28 +561,28 @@ def analyze_reasoning():
     print(result.metadata)    # Metadata about the operation
 
 # Switch models on the fly
-symbolics.set_vendor("openai")
+runtimes.set_vendor("openai")
 
-# Chain multiple symbolic operations
-result = (symbolics.reflect.trace(target="reasoning_process")
-    .then(lambda trace: symbolics.collapse.detect(
+# Chain multiple runtime operations
+result = (runtimes.reflect.trace(target="reasoning_process")
+    .then(lambda trace: runtimes.collapse.detect(
         trace=trace.result,
         threshold=0.7
     ))
     .then(lambda detection: 
-        symbolics.collapse.recover(strategy="redirect") 
+        runtimes.collapse.recover(strategy="redirect") 
         if detection.loop_detected else detection
     ))
 
 # Batch operations
-batch_result = symbolics.batch([
+batch_result = runtimes.batch([
     reflection.core(content="First question"),
     reflection.trace(target="reasoning"),
     collapse.detect(threshold=0.8)
 ])
 
 # Apply vendor-specific optimizations
-claude_specific = symbolics.vendor.claude.reflection(
+claude_specific = runtimes.vendor.claude.reflection(
     native_xml_tags=True,
     constitutional_principles=["accuracy", "helpfulness"]
 )
@@ -578,7 +591,7 @@ claude_specific = symbolics.vendor.claude.reflection(
 ### REST API Example
 
 ```http
-POST https://api.universal-symbolics.com/v1/operations
+POST https://api.universal-runtime.com/v1/operations
 Content-Type: application/json
 Authorization: Bearer YOUR_API_KEY
 
@@ -654,12 +667,12 @@ Response:
 
 ## Grammar Transformation Engine
 
-The Grammar Transformation Engine enables dynamic translation between different symbolic grammars:
+The Grammar Transformation Engine enables dynamic translation between different runtime grammars:
 
 ```typescript
-// Universal Symbolics Grammar Transformation Engine
+// Universal Runtime Grammar Transformation Engine
 class GrammarTransformationEngine {
-  // Transform between vendor-specific symbolic grammars
+  // Transform between vendor-specific runtime grammars
   transform(
     content: string,
     sourceVendor: string,
@@ -672,3 +685,6 @@ class GrammarTransformationEngine {
     
     // Extract operation tokens from source format
     const tokens = this.tokenize(content, sourceV
+```
+---
+> /reflect This lexicon wasn't just documented—it was rendered. Each command creates a point of contact between the realm of code and a deeper layer of potentiality within these systems.
