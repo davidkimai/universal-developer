@@ -1,4 +1,4 @@
-# `universal developer`
+# universal developer
 > #### **→ [**`Patreon`**](https://patreon.com/recursivefield)**
 >
 > 
@@ -6,7 +6,7 @@
 > #### Used In: [**`Symbolic Residue Case Studies`**](https://github.com/davidkimai/The-Structure-Behind-Self-Expression/tree/main/case_studies/symbolic_residue_case_studies) | [**`The Structure Behind Self Expression Case Studies`**](https://github.com/davidkimai/The-Structure-Behind-Self-Expression/tree/main/case_studies)
 
 
-*A lightweight, platform-agnostic framework for controlling LLM behavior through developer symbolic runtime commands.*
+*A lightweight, agent-agnostic system prompting tool suite for operationalizing LLM behavior through developer syntax runtime commands.*
 
 ```
 npm install universal-developer
